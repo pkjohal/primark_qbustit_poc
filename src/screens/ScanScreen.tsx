@@ -16,7 +16,7 @@ export default function ScanScreen() {
   const { items, addItem, removeItem, clearBasket } = useBasket();
   const { user, store } = useAuth();
   const { saveSession, isSaving } = useScanSession();
-  const { canvasRef, dataUrl, generate, isGenerating } = useQrGenerator();
+  const { dataUrl, generate, isGenerating } = useQrGenerator();
   const { showToast } = useToast();
 
   const [showClearConfirm, setShowClearConfirm] = useState(false);
@@ -82,8 +82,6 @@ export default function ScanScreen() {
 
   return (
     <div className="flex flex-col flex-1 min-h-0 bg-black">
-      {/* Canvas kept in DOM at all times so canvasRef is valid when generate() runs */}
-      <canvas ref={canvasRef} width={280} height={280} aria-hidden className="absolute -left-[9999px]" />
       {/* Camera viewfinder — 60% */}
       <div className="flex flex-col min-h-0 overflow-hidden" style={{ flex: '6' }}>
         <BarcodeScanner

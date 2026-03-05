@@ -1,10 +1,9 @@
-import { useRef, useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import QRCode from 'qrcode';
 import { buildQrString, exceedsQrLimit } from '@/lib/qrFormat';
 import type { BasketItem } from '@/lib/types';
 
 interface UseQrGeneratorReturn {
-  canvasRef: React.RefObject<HTMLCanvasElement>;
   dataUrl: string;
   qrString: string;
   generate: (items: BasketItem[]) => Promise<string>;
@@ -12,7 +11,6 @@ interface UseQrGeneratorReturn {
 }
 
 export function useQrGenerator(): UseQrGeneratorReturn {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
   const [dataUrl, setDataUrl] = useState('');
   const [qrString, setQrString] = useState('');
   const [isGenerating, setIsGenerating] = useState(false);
@@ -31,20 +29,19 @@ export function useQrGenerator(): UseQrGeneratorReturn {
       const qr = buildQrString(eans);
       setQrString(qr);
 
-      if (canvasRef.current) {
-        await QRCode.toCanvas(canvasRef.current, qr, {
-          width: 280,
-          margin: 2,
-          errorCorrectionLevel: 'M',
-          color: { dark: '#1A1F36', light: '#ffffff' },
-        });
-        setDataUrl(canvasRef.current.toDataURL('image/png'));
-      }
+      const url = await QRCode.toDataURL(qr, {
+        width: 280,
+        margin: 2,
+        errorCorrectionLevel: 'M',
+        color: { dark: '#1A1F36', light: '#ffffff' },
+      });
+      setDataUrl(url);
+
       return qr;
     } finally {
       setIsGenerating(false);
     }
   }, []);
 
-  return { canvasRef, dataUrl, qrString, generate, isGenerating };
+  return { dataUrl, qrString, generate, isGenerating };
 }

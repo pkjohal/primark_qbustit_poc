@@ -3,7 +3,6 @@ import { AuthProvider, useAuth } from '@/context/AuthContext';
 import { BasketProvider } from '@/context/BasketContext';
 import { ToastProvider } from '@/context/ToastContext';
 import NavBar from '@/components/layout/NavBar';
-import BottomNav from '@/components/layout/BottomNav';
 import ToastContainer from '@/components/ui/Toast';
 import LoginScreen from '@/screens/LoginScreen';
 import ScanScreen from '@/screens/ScanScreen';
@@ -49,7 +48,6 @@ function AppLayout({ children }: { children: React.ReactNode }) {
     <div className="flex flex-col h-full bg-light-grey">
       <NavBar />
       <main className="flex flex-col flex-1 min-h-0">{children}</main>
-      <BottomNav />
     </div>
   );
 }

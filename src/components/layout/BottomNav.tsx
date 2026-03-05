@@ -11,6 +11,9 @@ interface NavItem {
 export default function BottomNav() {
   const { canViewReports, isAdmin } = useAuth();
 
+  // Floor colleagues only have Scan — no bottom nav needed
+  if (!canViewReports) return null;
+
   const items: NavItem[] = [
     {
       to: '/scan',
