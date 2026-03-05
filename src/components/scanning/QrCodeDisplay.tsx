@@ -9,22 +9,22 @@ interface QrCodeDisplayProps {
 }
 
 export default function QrCodeDisplay({ items, size = 280, onGenerated }: QrCodeDisplayProps) {
-  const { canvasRef, generate, dataUrl, qrString } = useQrGenerator();
+  const { generate, dataUrl, qrString } = useQrGenerator();
 
   useEffect(() => {
     generate(items).then((qr) => {
-      onGenerated?.(qr, canvasRef.current?.toDataURL() ?? '');
+      onGenerated?.(qr, dataUrl);
     }).catch(console.error);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <canvas
-      ref={canvasRef}
+    <img
+      src={dataUrl}
+      alt="QR code for basket"
       width={size}
       height={size}
       className="rounded-lg"
-      aria-label="QR code for basket"
     />
   );
 }
