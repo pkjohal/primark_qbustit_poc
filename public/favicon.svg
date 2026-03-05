@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Background -->
+  <rect width="32" height="32" rx="7" fill="#1A1F36"/>
+
+  <!-- Barcode bars -->
+  <rect x="5"  y="9" width="2"   height="14" rx="0.5" fill="#0DAADB"/>
+  <rect x="9"  y="9" width="1"   height="14" rx="0.5" fill="white"/>
+  <rect x="11" y="9" width="2.5" height="14" rx="0.5" fill="white"/>
+  <rect x="15" y="9" width="1"   height="14" rx="0.5" fill="white"/>
+  <rect x="17" y="9" width="2"   height="14" rx="0.5" fill="white"/>
+  <rect x="21" y="9" width="1"   height="14" rx="0.5" fill="white"/>
+  <rect x="23" y="9" width="1.5" height="14" rx="0.5" fill="white"/>
+  <rect x="26" y="9" width="1"   height="14" rx="0.5" fill="#0DAADB"/>
+
+  <!-- Scan line -->
+  <rect x="4" y="15.5" width="24" height="1" rx="0.5" fill="#0DAADB" opacity="0.6"/>
+</svg>
