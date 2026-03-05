@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Remove tap highlight on mobile */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Full-height layout */
+html,
+body,
+#root {
+  height: 100%;
+  height: 100dvh; /* dynamic viewport height — avoids iOS bottom bar issue */
+}
+
+body {
+  overscroll-behavior: none;
+  overflow: hidden;
+}
+
+/* html5-qrcode internal element cleanup */
+#qr-reader > img {
+  display: none !important;
+}
+
+#qr-reader__dashboard_section_csr > span:first-child,
+#qr-reader__status_span,
+#qr-reader__camera_permission_button,
+#qr-reader__filescan_input {
+  display: none !important;
+}
+
+/* Custom range input styling for zoom slider */
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 9999px;
+  cursor: pointer;
+  outline: none;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 9999px;
+  background: #0DAADB;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+input[type='range']::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 9999px;
+  background: #0DAADB;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Smooth scroll for basket list */
+.overscroll-contain {
+  overscroll-behavior: contain;
+}
