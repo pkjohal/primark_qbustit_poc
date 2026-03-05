@@ -1,4 +1,4 @@
-# Primark Qbust.it — Queue Busting POC
+# Primark Qbust.it —POC Queue Busting 
 
 Qbust.it is an internal mobile application for Primark store colleagues to scan customer items on the shop floor using EAN-13 barcodes. It generates a single QR code representing the entire basket; at the checkout, the till colleague scans the QR code to process all items instantly, eliminating queue wait times during peak periods.
 
