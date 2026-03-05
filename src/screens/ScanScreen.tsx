@@ -83,7 +83,7 @@ export default function ScanScreen() {
   return (
     <div className="flex flex-col flex-1 min-h-0 bg-black">
       {/* Camera viewfinder — 60% */}
-      <div className="flex flex-col" style={{ flex: '6' }}>
+      <div className="flex flex-col min-h-0 overflow-hidden" style={{ flex: '6' }}>
         <BarcodeScanner
           onScan={handleScan}
           onError={handleError}
@@ -92,7 +92,7 @@ export default function ScanScreen() {
       </div>
 
       {/* Basket panel — 40% */}
-      <div className="flex flex-col" style={{ flex: '4' }}>
+      <div className="flex flex-col min-h-0" style={{ flex: '4' }}>
         <BasketList
           items={items}
           onRemove={removeItem}

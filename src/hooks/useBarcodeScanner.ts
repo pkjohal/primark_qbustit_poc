@@ -55,7 +55,10 @@ export function useBarcodeScanner({
         { facingMode: 'environment' },
         {
           fps: 10,
-          qrbox: { width: 280, height: 100 },
+          qrbox: (viewfinderWidth, viewfinderHeight) => ({
+            width: Math.floor(viewfinderWidth * 0.8),
+            height: Math.floor(viewfinderHeight * 0.25),
+          }),
         },
         (decodedText) => {
           if (!validateEan13(decodedText)) {

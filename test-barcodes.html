@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Primark Qbust.it — Test Barcodes</title>
+  <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f5f5f5;
+      padding: 24px 16px;
+    }
+
+    h1 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1A1F36;
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: #6B7280;
+      margin-bottom: 24px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px 16px 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .product-code {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: #0057A8;
+      text-transform: uppercase;
+    }
+
+    .product-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1A1F36;
+      text-align: center;
+    }
+
+    .product-category {
+      font-size: 11px;
+      color: #9CA3AF;
+    }
+
+    svg.barcode {
+      max-width: 100%;
+    }
+
+    .ean-text {
+      font-size: 11px;
+      font-family: monospace;
+      color: #6B7280;
+      letter-spacing: 0.05em;
+    }
+
+    @media print {
+      body { background: white; padding: 8px; }
+      .card { box-shadow: none; border: 1px solid #e5e7eb; break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Primark Qbust.it — Test Barcodes</h1>
+  <p class="subtitle">Open this page on a monitor or second device. Hold each barcode up to your phone camera to scan.</p>
+
+  <div class="grid">
+
+    <div class="card">
+      <span class="product-code">PRI123451</span>
+      <span class="product-name">Women's Crew Neck Tee</span>
+      <span class="product-category">Womenswear</span>
+      <svg class="barcode" id="bc1"></svg>
+      <span class="ean-text">5060000000016</span>
+    </div>
+
+    <div class="card">
+      <span class="product-code">PRI123452</span>
+      <span class="product-name">Men's Slim Fit Chinos</span>
+      <span class="product-category">Menswear</span>
+      <svg class="barcode" id="bc2"></svg>
+      <span class="ean-text">5060000000023</span>
+    </div>
+
+    <div class="card">
+      <span class="product-code">PRI123453</span>
+      <span class="product-name">Kids' Striped Hoodie</span>
+      <span class="product-category">Kidswear</span>
+      <svg class="barcode" id="bc3"></svg>
+      <span class="ean-text">5060000000030</span>
+    </div>
+
+    <div class="card">
+      <span class="product-code">PRI123454</span>
+      <span class="product-name">Ankle Socks 5-Pack</span>
+      <span class="product-category">Accessories</span>
+      <svg class="barcode" id="bc4"></svg>
+      <span class="ean-text">5060000000047</span>
+    </div>
+
+    <div class="card">
+      <span class="product-code">PRI123455</span>
+      <span class="product-name">Faux Leather Tote Bag</span>
+      <span class="product-category">Bags</span>
+      <svg class="barcode" id="bc5"></svg>
+      <span class="ean-text">5060000000054</span>
+    </div>
+
+    <div class="card">
+      <span class="product-code">PRI123456</span>
+      <span class="product-name">Ribbed Knit Cardigan</span>
+      <span class="product-category">Womenswear</span>
+      <svg class="barcode" id="bc6"></svg>
+      <span class="ean-text">5060000000061</span>
+    </div>
+
+    <div class="card">
+      <span class="product-code">PRI123457</span>
+      <span class="product-name">Graphic Print Hoodie</span>
+      <span class="product-category">Menswear</span>
+      <svg class="barcode" id="bc7"></svg>
+      <span class="ean-text">5060000000078</span>
+    </div>
+
+    <div class="card">
+      <span class="product-code">PRI123458</span>
+      <span class="product-name">Floral Midi Skirt</span>
+      <span class="product-category">Womenswear</span>
+      <svg class="barcode" id="bc8"></svg>
+      <span class="ean-text">5060000000085</span>
+    </div>
+
+    <div class="card">
+      <span class="product-code">PRI123459</span>
+      <span class="product-name">Toddler Dungarees</span>
+      <span class="product-category">Kidswear</span>
+      <svg class="barcode" id="bc9"></svg>
+      <span class="ean-text">5060000000092</span>
+    </div>
+
+  </div>
+
+  <script>
+    const barcodes = [
+      { id: 'bc1', value: '5060000000016' },
+      { id: 'bc2', value: '5060000000023' },
+      { id: 'bc3', value: '5060000000030' },
+      { id: 'bc4', value: '5060000000047' },
+      { id: 'bc5', value: '5060000000054' },
+      { id: 'bc6', value: '5060000000061' },
+      { id: 'bc7', value: '5060000000078' },
+      { id: 'bc8', value: '5060000000085' },
+      { id: 'bc9', value: '5060000000092' },
+    ];
+
+    barcodes.forEach(({ id, value }) => {
+      JsBarcode(`#${id}`, value, {
+        format: 'EAN13',
+        width: 2,
+        height: 80,
+        displayValue: false,
+        margin: 4,
+        lineColor: '#1A1F36',
+        background: '#ffffff',
+      });
+    });
+  </script>
+
+</body>
+</html>
