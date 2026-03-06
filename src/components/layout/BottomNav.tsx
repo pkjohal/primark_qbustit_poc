@@ -19,7 +19,7 @@ export default function BottomNav() {
   ];
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-border-grey h-16 flex items-center z-40 md:justify-center md:gap-2 md:px-6">
+    <nav className="hidden md:flex fixed bottom-0 left-0 right-0 bg-white border-t border-border-grey h-16 items-center z-40 md:justify-center md:gap-2 md:px-6">
       {items.map(item => (
         <NavLink
           key={item.to}
