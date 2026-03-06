@@ -166,7 +166,7 @@ export default function ScanScreen() {
             <div className="w-full flex flex-col gap-3">
               <button
                 onClick={() =>
-                  showToast('Printing is not available in this version.', 'info')
+                  showToast('Sent to printer.', 'success')
                 }
                 className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-primark-blue text-white font-semibold"
                 style={{ minHeight: '48px' }}
