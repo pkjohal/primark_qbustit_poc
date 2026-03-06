@@ -5,6 +5,7 @@ import { supabase } from '@/lib/supabase';
 import { useAuth } from '@/context/AuthContext';
 import { initAudioContext } from '@/lib/audio';
 import type { Store, User } from '@/lib/types';
+import { ROLE_LABELS } from '@/lib/types';
 
 type Step = 'store' | 'user' | 'pin';
 
@@ -174,7 +175,7 @@ export default function LoginScreen() {
                 >
                   <option value="" disabled>Select your name…</option>
                   {users.map((u) => (
-                    <option key={u.id} value={u.id}>{u.name}</option>
+                    <option key={u.id} value={u.id}>{u.name} — {ROLE_LABELS[u.role]}</option>
                   ))}
                 </select>
               )}
