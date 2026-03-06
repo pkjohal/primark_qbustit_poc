@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { ScanBarcode, BarChart3, Settings, LogOut, X, Menu } from 'lucide-react';
+import { ScanBarcode, ShoppingBag, BarChart3, Settings, LogOut, X, Menu } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 import { ROLE_LABELS } from '@/lib/types';
 
@@ -27,6 +27,7 @@ export default function NavBar() {
 
   const navItems = [
     { to: '/scan', icon: ScanBarcode, label: 'Scan' },
+    { to: '/baskets', icon: ShoppingBag, label: 'Baskets' },
     ...(canViewReports ? [{ to: '/reports', icon: BarChart3, label: 'Reports' }] : []),
     ...(isAdmin ? [{ to: '/admin', icon: Settings, label: 'Admin' }] : []),
   ];

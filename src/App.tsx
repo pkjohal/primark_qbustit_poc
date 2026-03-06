@@ -7,6 +7,8 @@ import BottomNav from '@/components/layout/BottomNav';
 import ToastContainer from '@/components/ui/Toast';
 import LoginScreen from '@/screens/LoginScreen';
 import ScanScreen from '@/screens/ScanScreen';
+import BasketsScreen from '@/screens/BasketsScreen';
+import BasketDetailScreen from '@/screens/BasketDetailScreen';
 import ReportsScreen from '@/screens/ReportsScreen';
 import AdminScreen from '@/screens/AdminScreen';
 import { useToast } from '@/hooks/useToast';
@@ -67,6 +69,28 @@ function AppRoutes() {
           <RequireAuth>
             <AppLayout>
               <ScanScreen />
+            </AppLayout>
+          </RequireAuth>
+        }
+      />
+
+      <Route
+        path="/baskets"
+        element={
+          <RequireAuth>
+            <AppLayout>
+              <BasketsScreen />
+            </AppLayout>
+          </RequireAuth>
+        }
+      />
+
+      <Route
+        path="/baskets/:id"
+        element={
+          <RequireAuth>
+            <AppLayout>
+              <BasketDetailScreen />
             </AppLayout>
           </RequireAuth>
         }

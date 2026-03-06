@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { ScanBarcode, BarChart3, Settings } from 'lucide-react';
+import { ScanBarcode, ShoppingBag, BarChart3, Settings } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 
 interface NavItem {
@@ -13,6 +13,7 @@ export default function BottomNav() {
 
   const items: NavItem[] = [
     { to: '/scan', icon: ScanBarcode, label: 'Scan' },
+    { to: '/baskets', icon: ShoppingBag, label: 'Baskets' },
     ...(canViewReports ? [{ to: '/reports', icon: BarChart3, label: 'Reports' }] : []),
     ...(isAdmin ? [{ to: '/admin', icon: Settings, label: 'Admin' }] : []),
   ];
