@@ -1,10 +1,10 @@
 import { NavLink } from 'react-router-dom';
-import { ScanBarcode, ShoppingBag, BarChart3, Settings } from 'lucide-react';
+import { ScanBarcode, ShoppingBag, BarChart3, Settings, type LucideIcon } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 
 interface NavItem {
   to: string;
-  icon: React.ComponentType<{ size?: number }>;
+  icon: LucideIcon;
   label: string;
 }
 
