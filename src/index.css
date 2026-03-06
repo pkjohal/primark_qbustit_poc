@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -20,15 +22,27 @@ body {
   overflow: hidden;
 }
 
-/* html5-qrcode internal element cleanup */
-#qr-reader > img {
+/* html5-qrcode internal element cleanup — uses attribute selector for dynamic IDs */
+[id^="qr-reader"] video {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+[id^="qr-reader"] > div:first-child {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+[id^="qr-reader"] img,
+[id^="qr-reader"] canvas {
   display: none !important;
 }
 
-#qr-reader__dashboard_section_csr > span:first-child,
-#qr-reader__status_span,
-#qr-reader__camera_permission_button,
-#qr-reader__filescan_input {
+[id$="__dashboard"],
+[id$="__status_span"],
+[id$="__camera_permission_button"],
+[id$="__filescan_input"] {
   display: none !important;
 }
 

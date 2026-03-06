@@ -102,11 +102,11 @@ export default function BarcodeScanner({ onScan, onError, itemCount }: BarcodeSc
   }
 
   return (
-    <div className="relative flex-1 bg-black overflow-hidden">
+    <div className="relative w-full h-full bg-black overflow-hidden">
       {/* html5-qrcode target element — fills container */}
       <div
         id={scannerId}
-        className="w-full h-full [&_video]:w-full [&_video]:h-full [&_video]:object-cover [&_img]:hidden"
+        className="w-full h-full [&_video]:!w-full [&_video]:!h-full [&_video]:!object-cover [&_img]:!hidden [&_canvas]:!hidden [&>div:first-child]:!w-full [&>div:first-child]:!h-full"
       />
 
       {/* Targeting overlay — horizontal scan line */}
