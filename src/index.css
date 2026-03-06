@@ -19,7 +19,7 @@ body,
 
 body {
   overscroll-behavior: none;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 /* html5-qrcode internal element cleanup — uses attribute selector for dynamic IDs */
