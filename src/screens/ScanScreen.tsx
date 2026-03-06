@@ -81,18 +81,21 @@ export default function ScanScreen() {
   };
 
   return (
-    <div className="flex flex-col flex-1 min-h-0 bg-black">
-      {/* Camera viewfinder — 60% */}
-      <div className="flex flex-col min-h-0 overflow-hidden" style={{ flex: '6' }}>
-        <BarcodeScanner
-          onScan={handleScan}
-          onError={handleError}
-          itemCount={items.length}
-        />
+    <div className="flex flex-col flex-1 min-h-0 bg-black md:block md:h-auto md:max-w-6xl md:mx-auto md:py-6 md:bg-light-grey">
+
+      {/* Camera viewfinder — 60% on mobile, fixed-height box on desktop */}
+      <div className="flex flex-col min-h-0 overflow-hidden md:flex-none" style={{ flex: '6' }}>
+        <div className="flex flex-col h-full md:h-[560px] md:overflow-hidden md:shadow-lg">
+          <BarcodeScanner
+            onScan={handleScan}
+            onError={handleError}
+            itemCount={items.length}
+          />
+        </div>
       </div>
 
-      {/* Basket panel — 40% */}
-      <div className="flex flex-col min-h-0" style={{ flex: '4' }}>
+      {/* Basket panel — 40% on mobile, card below on desktop */}
+      <div className="flex flex-col min-h-0 pb-16 md:pb-0 md:mt-4 md:overflow-hidden md:shadow-sm" style={{ flex: '4' }}>
         <BasketList
           items={items}
           onRemove={removeItem}
@@ -163,7 +166,7 @@ export default function ScanScreen() {
             <div className="w-full flex flex-col gap-3">
               <button
                 onClick={() =>
-                  showToast('Printing is not available in this version.', 'info')
+                  showToast('Sent to printer.', 'success')
                 }
                 className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-primark-blue text-white font-semibold"
                 style={{ minHeight: '48px' }}

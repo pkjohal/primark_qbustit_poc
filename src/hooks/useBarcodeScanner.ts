@@ -16,11 +16,14 @@ interface UseBarcodeSccannerReturn {
   retryCamera: (elementId: string) => Promise<void>;
 }
 
+const SCAN_DWELL_MS = 2000;
+
 export function useBarcodeScanner({
   onScan,
   onError,
 }: UseBarcodeSccannerOptions): UseBarcodeSccannerReturn {
   const scannerRef = useRef<Html5Qrcode | null>(null);
+  const lastScanRef = useRef<{ ean: string; ts: number } | null>(null);
   const [isScanning, setIsScanning] = useState(false);
   const [cameraError, setCameraError] = useState<string | null>(null);
 
@@ -65,6 +68,10 @@ export function useBarcodeScanner({
             onError?.('Invalid barcode — please try again.');
             return;
           }
+          const now = Date.now();
+          const last = lastScanRef.current;
+          if (last && last.ean === decodedText && now - last.ts < SCAN_DWELL_MS) return;
+          lastScanRef.current = { ean: decodedText, ts: now };
           playBeep();
           if (navigator.vibrate) navigator.vibrate(80);
           onScan(decodedText);

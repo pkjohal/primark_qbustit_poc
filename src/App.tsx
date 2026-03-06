@@ -3,9 +3,12 @@ import { AuthProvider, useAuth } from '@/context/AuthContext';
 import { BasketProvider } from '@/context/BasketContext';
 import { ToastProvider } from '@/context/ToastContext';
 import NavBar from '@/components/layout/NavBar';
+import BottomNav from '@/components/layout/BottomNav';
 import ToastContainer from '@/components/ui/Toast';
 import LoginScreen from '@/screens/LoginScreen';
 import ScanScreen from '@/screens/ScanScreen';
+import BasketsScreen from '@/screens/BasketsScreen';
+import BasketDetailScreen from '@/screens/BasketDetailScreen';
 import ReportsScreen from '@/screens/ReportsScreen';
 import AdminScreen from '@/screens/AdminScreen';
 import { useToast } from '@/hooks/useToast';
@@ -47,7 +50,8 @@ function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex flex-col h-full bg-light-grey">
       <NavBar />
-      <main className="flex flex-col flex-1 min-h-0">{children}</main>
+      <main className="flex-1 overflow-y-auto pb-16">{children}</main>
+      <BottomNav />
     </div>
   );
 }
@@ -65,6 +69,28 @@ function AppRoutes() {
           <RequireAuth>
             <AppLayout>
               <ScanScreen />
+            </AppLayout>
+          </RequireAuth>
+        }
+      />
+
+      <Route
+        path="/baskets"
+        element={
+          <RequireAuth>
+            <AppLayout>
+              <BasketsScreen />
+            </AppLayout>
+          </RequireAuth>
+        }
+      />
+
+      <Route
+        path="/baskets/:id"
+        element={
+          <RequireAuth>
+            <AppLayout>
+              <BasketDetailScreen />
             </AppLayout>
           </RequireAuth>
         }

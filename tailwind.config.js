@@ -20,6 +20,7 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'Segoe UI', 'system-ui', 'sans-serif'],
+        primark: ['Work Sans', 'Helvetica Neue', 'Arial', 'sans-serif'],
       },
     },
   },
